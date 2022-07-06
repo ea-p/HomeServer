@@ -1,0 +1,25 @@
+# Gitignore file for Project HomeServer
+
+# Test files and folders
+.env*
+Test-*/
+Test-*
+secret*
+bazarr/*
+!bazarr/.gitkeep
+organizr/*
+!organizr/.gitkeep
+overseerr/*
+!overseerr/.gitkeep
+plex/database/*
+!plex/database/.gitkeep
+plex/media/*
+!plex/media/.gitkeep
+plex/transcode/*
+!plex/transcode/.gitkeep
+prowlarr/*
+!prowlarr/.gitkeep
+radarr/*
+!radarr/.gitkeep
+sonarr/*
+!sonarr/.gitkeep
