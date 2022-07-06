@@ -165,6 +165,7 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ./apache/vhosts/:/usr/local/apache2/conf/sites/
+      - ./apache/logs/:/usr/local/apache2/logs/
     networks:
       - homeServerNetwork
     ports:

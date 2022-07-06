@@ -23,3 +23,5 @@ radarr/*
 !radarr/.gitkeep
 sonarr/*
 !sonarr/.gitkeep
+qbittorrent/*
+!qbittorrent/.gitkeep
