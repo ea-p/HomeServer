@@ -130,7 +130,7 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
       - WEBUI_PORT=${QBITTIRRENT_PORT}
     volumes:
-      - /path/to/appdata/config:/config
+      - ${QBITTORRENT_CONFIG}:/config
       - /path/to/downloads:/downloads
     ports:
       - ${QBITTIRRENT_PORT}:${QBITTIRRENT_PORT}
