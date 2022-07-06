@@ -42,6 +42,8 @@ services:
       - ${OVERSEERR_CONFIG}:/config
     #ports:
     #  - ${OVERSEERR_PORT}:5055
+    networks:
+      - homeServerNetwork
     restart: unless-stopped
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
@@ -142,7 +144,7 @@ services:
   filebot:
     image: ghostserverd/filebot:4.9.x
     container_name: filebot
-    restart: always
+    restart: unless-stopped
     #ports:
     #  - "7070:7070"
     environment:
@@ -156,6 +158,8 @@ services:
       - ${FILEBOT_CONFIG}:/config
       - ${DOWNLOADS_LOC}:/downloads
       - /server/media:/server/media
+    networks:
+      - homeServerNetwork
   apache-proxy:
     build: ./apache
     container_name: apache-proxy
