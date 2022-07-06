@@ -128,12 +128,12 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${CUSTOM_TIME_ZONE}
-      - WEBUI_PORT=${QBITTIRRENT_PORT}
+      - WEBUI_PORT=${QBITTORRENT_PORT}
     volumes:
       - ${QBITTORRENT_CONFIG}:/config
-      - /path/to/downloads:/downloads
+      - ${DOWNLOADS_LOC}:/downloads
     ports:
-      - ${QBITTIRRENT_PORT}:${QBITTIRRENT_PORT}
+      - ${QBITTORRENT_PORT}:${QBITTORRENT_PORT}
       - 6881:6881
       - 6881:6881/udp
     networks:
