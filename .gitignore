@@ -25,3 +25,7 @@ sonarr/*
 !sonarr/.gitkeep
 qbittorrent/*
 !qbittorrent/.gitkeep
+apache/logs/*
+!apache/logs/.gitkeep
+filebot/*
+!filebot/.gitkeep

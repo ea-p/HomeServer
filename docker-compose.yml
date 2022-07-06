@@ -84,7 +84,8 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ${RADARR_CONFIG_PATH}:/config
-      - ${MOVIES_LOC}:/movies #optional
+      - ${MOVIES_LOC}:/data
+      #  - ${MOVIES_LOC}:/movies #optional
       - ${DOWNLOADS_LOC}:/downloads #optional
     #ports:
     #  - ${RADARR_ACCESS_PORT}:7878
@@ -100,7 +101,8 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ${SONARR_CONFIG_PATH}:/config
-      - ${TVSHOWS_LOC}:/tv #optional
+      - ${TVSHOWS_LOC}:/data
+      #  - ${TVSHOWS_LOC}:/tv #optional
       - ${DOWNLOADS_LOC}:/downloads #optional
     #ports:
     #  - ${SONARR_ACCESS_PORT}:8989
