@@ -144,25 +144,25 @@ services:
     networks:
       - homeServerNetwork
     restart: unless-stopped
-  filebot:
-    image: ghostserverd/filebot:4.9.x
-    container_name: filebot
-    restart: unless-stopped
-    #ports:
-    #  - "7070:7070"
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - SHARE_BASE_PATH=/server
-      - OPEN_SUB_USER=someuser
-      - OPEN_SUB_PASS=somepass
-      - TZ=${CUSTOM_TIME_ZONE}
-    volumes:
-      - ${FILEBOT_CONFIG}:/config
-      - ${DOWNLOADS_LOC}:/downloads
-      - /server/media:/server/media
-    networks:
-      - homeServerNetwork
+  #filebot:
+  #  image: ghostserverd/filebot:4.9.x
+  #  container_name: filebot
+  #  restart: unless-stopped
+  #   ports:
+  #    - "7070:7070"
+  #  environment:
+  #    - PUID=1000
+  #    - PGID=1000
+  #    - SHARE_BASE_PATH=/server
+  #    - OPEN_SUB_USER=someuser
+  #    - OPEN_SUB_PASS=somepass
+  #    - TZ=${CUSTOM_TIME_ZONE}
+  #  volumes:
+  #    - ${FILEBOT_CONFIG}:/config
+  #    - ${DOWNLOADS_LOC}:/downloads
+  #    - /server/media:/server/media
+  #  networks:
+  #    - homeServerNetwork
   apache-proxy:
     build: ./apache
     container_name: apache-proxy
