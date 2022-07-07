@@ -89,6 +89,7 @@ services:
       - ${MOVIES_LOC}:/data
       #  - ${MOVIES_LOC}:/movies #optional
       - ${DOWNLOADS_LOC}:/downloads #optional
+      - ${EXTERNAL_MEDIA}:/external_media
     #ports:
     #  - ${RADARR_ACCESS_PORT}:7878
     networks:
@@ -106,6 +107,7 @@ services:
       - ${TVSHOWS_LOC}:/data
       #  - ${TVSHOWS_LOC}:/tv #optional
       - ${DOWNLOADS_LOC}:/downloads #optional
+      - ${EXTERNAL_MEDIA}:/external_media
     #ports:
     #  - ${SONARR_ACCESS_PORT}:8989
     networks:

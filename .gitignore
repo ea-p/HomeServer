@@ -27,3 +27,5 @@ data/qbittorrent/*
 !data/qbittorrent/.gitkeep
 data/apache_logs/*
 !data/apache_logs/.gitkeep
+data/tautulli/*
+!data/tautulli/.gitkeep
