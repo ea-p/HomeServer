@@ -5,6 +5,7 @@
 Test-*/
 Test-*
 secret*
+plex_claim
 bazarr/*
 !bazarr/.gitkeep
 organizr/*
