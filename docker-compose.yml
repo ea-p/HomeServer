@@ -24,7 +24,7 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
       - FILE__PLEX_CLAIM=./custom_config/plex_claim
       - ADVERTISE_IP=${PLEX_HOST_SCHEME}${PLEX_HOST_IP}:${PLEX_MEDIA_SERVER_PORT}/
-    hostname: plexserver.example.com
+    hostname: plex
     volumes:
       - ${PLEX_DATABASE_LOC}:/config
       - ${TVSHOWS_LOC}:/tv
