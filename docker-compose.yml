@@ -22,7 +22,7 @@ services:
       - PGID=1000
       - VERSION=docker
       - TZ=${CUSTOM_TIME_ZONE}
-      - FILE__PLEX_CLAIM=./custom_config/plex_claim
+      - FILE__PLEX_CLAIM=./plex_claim
       - ADVERTISE_IP=${PLEX_HOST_SCHEME}${PLEX_HOST_IP}:${PLEX_MEDIA_SERVER_PORT}/
     hostname: plex
     volumes:
@@ -173,7 +173,7 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ./apache/vhosts/:/usr/local/apache2/conf/sites/
-      - ./apache/logs/:/usr/local/apache2/logs/
+      - ./data/apache_logs/:/usr/local/apache2/logs/
     networks:
       - homeServerNetwork
     ports:
