@@ -31,6 +31,7 @@ services:
       - ${MOVIES_LOC}:/movies
       - ${PLEX_TRANSCODE_LOC}:/transcode
       - ${PLEX_MEDIA_LOC}:/data
+      - ${EXTERNAL_MEDIA}:/external_media
   overseerr:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
