@@ -4,6 +4,8 @@
 .env*
 Test-*/
 Test-*
+Prod-*
+Prod-*/
 plex_claim
 data/bazarr/*
 !data/bazarr/.gitkeep
