@@ -27,11 +27,12 @@ services:
     hostname: plex
     volumes:
       - ${PLEX_DATABASE_LOC}:/config
-      - ${TVSHOWS_LOC}:/tv
-      - ${MOVIES_LOC}:/movies
-      - ${PLEX_TRANSCODE_LOC}:/transcode
-      - ${PLEX_MEDIA_LOC}:/data
-      - ${EXTERNAL_MEDIA}:/external_media
+      - ${STORAGE}:/Storage
+      #- ${TVSHOWS_LOC}:/tv
+      #- ${MOVIES_LOC}:/movies
+      #- ${PLEX_TRANSCODE_LOC}:/transcode
+      #- ${PLEX_MEDIA_LOC}:/data
+      #- ${EXTERNAL_MEDIA}:/external_media
   overseerr:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
@@ -87,9 +88,10 @@ services:
     volumes:
       - ${RADARR_CONFIG_PATH}:/config
       - ${MOVIES_LOC}:/data
-      #  - ${MOVIES_LOC}:/movies #optional
-      - ${DOWNLOADS_LOC}:/downloads #optional
-      - ${EXTERNAL_MEDIA}:/external_media
+      - ${STORAGE}:/Storage
+      #- ${MOVIES_LOC}:/movies #optional
+      #- ${DOWNLOADS_LOC}:/downloads #optional
+      #- ${EXTERNAL_MEDIA}:/external_media
     #ports:
     #  - ${RADARR_ACCESS_PORT}:7878
     networks:
@@ -105,9 +107,10 @@ services:
     volumes:
       - ${SONARR_CONFIG_PATH}:/config
       - ${TVSHOWS_LOC}:/data
-      #  - ${TVSHOWS_LOC}:/tv #optional
-      - ${DOWNLOADS_LOC}:/downloads #optional
-      - ${EXTERNAL_MEDIA}:/external_media
+      - ${STORAGE}:/Storage
+      #- ${TVSHOWS_LOC}:/tv #optional
+      #- ${DOWNLOADS_LOC}:/downloads #optional
+      #- ${EXTERNAL_MEDIA}:/external_media
     #ports:
     #  - ${SONARR_ACCESS_PORT}:8989
     networks:
@@ -122,8 +125,9 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ${BAZARR_CONFIG_PATH}:/config
-      - ${MOVIES_LOC}:/movies #optional
-      - ${TVSHOWS_LOC}:/tv #optional
+      - ${STORAGE}:/Storage
+      #- ${MOVIES_LOC}:/movies #optional
+      #- ${TVSHOWS_LOC}:/tv #optional
     #ports:
     #  - ${RADARR_ACCESS_PORT}:6767
     networks:
@@ -139,7 +143,8 @@ services:
       - WEBUI_PORT=${QBITTORRENT_PORT}
     volumes:
       - ${QBITTORRENT_CONFIG}:/config
-      - ${DOWNLOADS_LOC}:/downloads
+      - ${STORAGE}:/Storage
+      #- ${DOWNLOADS_LOC}:/downloads
     ports:
       - ${QBITTORRENT_PORT}:${QBITTORRENT_PORT}
       - 6881:6881
