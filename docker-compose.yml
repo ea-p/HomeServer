@@ -63,11 +63,12 @@ services:
     hostname: plex
     volumes:
       - ${PLEX_DATABASE_LOC}:/config
-      - ${TVSHOWS_LOC}:/tv
-      - ${MOVIES_LOC}:/movies
-      - ${PLEX_TRANSCODE_LOC}:/transcode
-      - ${PLEX_MEDIA_LOC}:/data
-      - ${EXTERNAL_MEDIA}:/external_media
+      - ${STORAGE}:/Storage
+      #- ${TVSHOWS_LOC}:/tv
+      #- ${MOVIES_LOC}:/movies
+      #- ${PLEX_TRANSCODE_LOC}:/transcode
+      #- ${PLEX_MEDIA_LOC}:/data
+      #- ${EXTERNAL_MEDIA}:/external_media
   overseerr:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
