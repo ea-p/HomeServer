@@ -3,7 +3,7 @@ version: "3"
 services:
   jellyfin:
     image: lscr.io/linuxserver/jellyfin:latest
-    contaienr_name: jellyfin
+    container_name: jellyfin
     environment:
       - PUID=1000
       - PGID=1000
