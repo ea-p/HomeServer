@@ -1,4 +1,4 @@
----
+
 version: "3"
 services:
   jellyfin:
@@ -37,52 +37,52 @@ services:
   ########################################
   #  Trying out Jellyfin and jeelyseerr  #
   ########################################
-  #plex:
-  #  container_name: plex
-  #  image: lscr.io/linuxserver/plex:latest
-  #  restart: unless-stopped
-  #  networks:
-  #    - homeServerNetwork
-  #  ports:
-  #    - ${PLEX_MEDIA_SERVER_PORT}:32400/tcp
-  #  #  - ${PLEX_COMPANION_PORT}:3005/tcp
-  #  #  - ${PLEX_FOR_ROKU_PORT}:8324/tcp
-  #  #  - ${PLEX_DLNA_SERVER_ACCESS_PORT}:32469/tcp
-  #  #  - ${PLEX_DLNA_SERVER_PORT}:1900/udp
-  #  #  - ${GDM_NETWORK_PORT1}:32410/udp
-  #  #  - ${GDM_NETWORK_PORT2}:32412/udp
-  #  #  - ${GDM_NETWORK_PORT3}:32413/udp
-  #  #  - ${GDM_NETWORK_PORT4}:32414/udp
-  #  environment:
-  #    - PUID=1000
-  #    - PGID=1000
-  #    - VERSION=docker
-  #    - TZ=${CUSTOM_TIME_ZONE}
-  #    - FILE__PLEX_CLAIM=./plex_claim
-  #    - ADVERTISE_IP=${PLEX_HOST_SCHEME}${PLEX_HOST_IP}:${PLEX_MEDIA_SERVER_PORT}/
-  #  hostname: plex
-  #  volumes:
-  #    - ${PLEX_DATABASE_LOC}:/config
-  #    - ${TVSHOWS_LOC}:/tv
-  #    - ${MOVIES_LOC}:/movies
-  #    - ${PLEX_TRANSCODE_LOC}:/transcode
-  #    - ${PLEX_MEDIA_LOC}:/data
-  #    - ${EXTERNAL_MEDIA}:/external_media
-  #overseerr:
-  #  image: lscr.io/linuxserver/overseerr:latest
-  #  container_name: overseerr
-  #  environment:
-  #    - PUID=1000
-  #    - PGID=1000
-  #    - TZ=${CUSTOM_TIME_ZONE}
-  #  volumes:
-  #    - ${OVERSEERR_CONFIG}:/config
-  #    - ${DOWNLOADS_LOC}:/data
-  #  #ports:
-  #  #  - ${OVERSEERR_PORT}:5055
-  #  networks:
-  #    - homeServerNetwork
-  #  restart: unless-stopped
+  plex:
+    container_name: plex
+    image: lscr.io/linuxserver/plex:latest
+    restart: unless-stopped
+    networks:
+      - homeServerNetwork
+    ports:
+      - ${PLEX_MEDIA_SERVER_PORT}:32400/tcp
+    #  - ${PLEX_COMPANION_PORT}:3005/tcp
+    #  - ${PLEX_FOR_ROKU_PORT}:8324/tcp
+    #  - ${PLEX_DLNA_SERVER_ACCESS_PORT}:32469/tcp
+    #  - ${PLEX_DLNA_SERVER_PORT}:1900/udp
+    #  - ${GDM_NETWORK_PORT1}:32410/udp
+    #  - ${GDM_NETWORK_PORT2}:32412/udp
+    #  - ${GDM_NETWORK_PORT3}:32413/udp
+    #  - ${GDM_NETWORK_PORT4}:32414/udp
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - VERSION=docker
+      - TZ=${CUSTOM_TIME_ZONE}
+      - FILE__PLEX_CLAIM=./plex_claim
+      - ADVERTISE_IP=${PLEX_HOST_SCHEME}${PLEX_HOST_IP}:${PLEX_MEDIA_SERVER_PORT}/
+    hostname: plex
+    volumes:
+      - ${PLEX_DATABASE_LOC}:/config
+      - ${TVSHOWS_LOC}:/tv
+      - ${MOVIES_LOC}:/movies
+      - ${PLEX_TRANSCODE_LOC}:/transcode
+      - ${PLEX_MEDIA_LOC}:/data
+      - ${EXTERNAL_MEDIA}:/external_media
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${CUSTOM_TIME_ZONE}
+    volumes:
+      - ${OVERSEERR_CONFIG}:/config
+      - ${DOWNLOADS_LOC}:/data
+    #ports:
+    #  - ${OVERSEERR_PORT}:5055
+    networks:
+      - homeServerNetwork
+    restart: unless-stopped
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:develop
     container_name: prowlarr
