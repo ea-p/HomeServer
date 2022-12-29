@@ -27,7 +27,7 @@ services:
     environment:
       - LOG_LEVEL=debug
       - TZ=${CUSTOM_TIME_ZONE}
-    ports:
+    #ports:
     #  - ${JELLYSEERR_PORT}:5055
     volumes:
       - ${JELLYSEERR_DATABASE_LOC}:/app/config
