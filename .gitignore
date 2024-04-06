@@ -1,6 +1,7 @@
 # Gitignore file for Project HomeServer
 
 # Test files and folders
+*_old
 .env*
 Test-*/
 Test-*
@@ -31,3 +32,8 @@ data/apache_logs/*
 !data/apache_logs/.gitkeep
 data/tautulli/*
 !data/tautulli/.gitkeep
+data/jellyfin/*
+!data/jekllyfin/.gitkeep
+data/jellyseerr/*
+!data/jellyseerr/.gitkeep
+

@@ -70,17 +70,18 @@ services:
       #- ${PLEX_MEDIA_LOC}:/data
       #- ${EXTERNAL_MEDIA}:/external_media
   overseerr:
-    image: lscr.io/linuxserver/overseerr:latest
+    #image: lscr.io/linuxserver/overseerr:latest
+    image: sctx/overseerr:latest
     container_name: overseerr
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
-      - ${OVERSEERR_CONFIG}:/config
+      - ${OVERSEERR_CONFIG}:/app/config
       - ${DOWNLOADS_LOC}:/data
-    #ports:
-    #  - ${OVERSEERR_PORT}:5055
+    ports:
+      - ${OVERSEERR_PORT}:5055
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -93,8 +94,8 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ${PROWLARR_CONFIG}:/config
-    #ports:
-    #  - ${PROWLARR_PORT}:9696
+    ports:
+      - ${PROWLARR_PORT}:9696
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -109,8 +110,8 @@ services:
       - branch=${ORGANIZR_MAIN_BRANCH}
     volumes:
       - ${ORGANIZR_CONFIG}:/config
-    #ports:
-    #  - ${ORGANIZR_PORT}:80
+    ports:
+      - ${ORGANIZR_PORT}:80
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -128,8 +129,8 @@ services:
       #- ${MOVIES_LOC}:/movies #optional
       #- ${DOWNLOADS_LOC}:/downloads #optional
       #- ${EXTERNAL_MEDIA}:/external_media
-    #ports:
-    #  - ${RADARR_ACCESS_PORT}:7878
+    ports:
+      - ${RADARR_ACCESS_PORT}:7878
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -147,8 +148,8 @@ services:
       #- ${TVSHOWS_LOC}:/tv #optional
       #- ${DOWNLOADS_LOC}:/downloads #optional
       #- ${EXTERNAL_MEDIA}:/external_media
-    #ports:
-    #  - ${SONARR_ACCESS_PORT}:8989
+    ports:
+      - ${SONARR_ACCESS_PORT}:8989
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -164,8 +165,8 @@ services:
       - ${STORAGE}:/Storage
       #- ${MOVIES_LOC}:/movies #optional
       #- ${TVSHOWS_LOC}:/tv #optional
-    #ports:
-    #  - ${RADARR_ACCESS_PORT}:6767
+    ports:
+      - ${BAZARR_ACCESS_PORT}:6767
     networks:
       - homeServerNetwork
     restart: unless-stopped
@@ -211,8 +212,8 @@ services:
     image: ghostserverd/tautulli
     container_name: tautulli
     restart: unless-stopped
-    #ports:
-    #  - "${TAUTULLI_PORT}:8181"
+    ports:
+      - "${TAUTULLI_PORT}:8181"
     environment:
       - PUID=1000
       - PGID=1000
