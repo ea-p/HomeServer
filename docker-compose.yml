@@ -47,9 +47,7 @@ services:
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
       - ${EMBY_CONFIG}:/config
-      - ${TVSHOWS_LOC}:/data/tvshows
-      - ${MOVIES_LOC}:/data/movies
-      - /path/to/movies:/data/movies
+      - ${STORAGE}:/Storage
     #  - /opt/vc/lib:/opt/vc/lib #optional
     ports:
       - ${EMBY_PORT}:8096
