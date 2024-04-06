@@ -1,42 +1,68 @@
 
 version: "3"
 services:
-  jellyfin:
-    image: lscr.io/linuxserver/jellyfin:latest
-    container_name: jellyfin
+  #jellyfin:
+  #  image: lscr.io/linuxserver/jellyfin:latest
+  #  container_name: jellyfin
+  #  environment:
+  #    - PUID=1000
+  #    - PGID=1000
+  #    - TZ=${CUSTOM_TIME_ZONE}
+  #  volumes:
+  #    - ${JELLYFIN_DATABASE_LOC}:/config
+  #    - ${STORAGE}:/Storage
+  #    - ${TVSHOWS_LOC}:/data/tvshows
+  #    - ${MOVIES_LOC}:/data/movies
+
+  #  ports:
+  #    - 8096:8096
+  #    - 7359:7359/udp #optional
+  #    - 1900:1900/udp #optional
+  #  networks:
+  #    - homeServerNetwork
+  #  restart: unless-stopped
+  #jellyseerr:
+  #  image: fallenbagel/jellyseerr:latest
+  #  container_name: jellyseerr
+  #  environment:
+  #    - LOG_LEVEL=debug
+  #    - TZ=${CUSTOM_TIME_ZONE}
+  #  #ports:
+  #  #  - ${JELLYSEERR_PORT}:5055
+  #  volumes:
+  #    - ${JELLYSEERR_DATABASE_LOC}:/app/config
+  #  networks:
+  #    - homeServerNetwork
+  #  restart: unless-stopped    
+  #########################################
+  #  - Trying out Jellyfin and jeelyseerr #
+  #  - Switching over to emby             # 
+  #########################################
+  emby:
+    image: lscr.io/linuxserver/emby:latest
+    container_name: emby
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${CUSTOM_TIME_ZONE}
     volumes:
-      - ${JELLYFIN_DATABASE_LOC}:/config
-      - ${STORAGE}:/Storage
+      - ${EMBY_CONFIG}:/config
       - ${TVSHOWS_LOC}:/data/tvshows
-      - ${MOVIES_LOC}:/data/movies
-
+      - $MOVIES_LOC}:/data/movies
+      - /path/to/movies:/data/movies
+    #  - /opt/vc/lib:/opt/vc/lib #optional
     ports:
       - 8096:8096
-      - 7359:7359/udp #optional
-      - 1900:1900/udp #optional
+      - 8920:8920 #optional
+    #devices:
+    #  - /dev/dri:/dev/dri #optional
+    #  - /dev/vchiq:/dev/vchiq #optional
+    #  - /dev/video10:/dev/video10 #optional
+    #  - /dev/video11:/dev/video11 #optional
+    #  - /dev/video12:/dev/video12 #optional
     networks:
-      - homeServerNetwork
+      -  homeServerNetwork
     restart: unless-stopped
-  jellyseerr:
-    image: fallenbagel/jellyseerr:latest
-    container_name: jellyseerr
-    environment:
-      - LOG_LEVEL=debug
-      - TZ=${CUSTOM_TIME_ZONE}
-    #ports:
-    #  - ${JELLYSEERR_PORT}:5055
-    volumes:
-      - ${JELLYSEERR_DATABASE_LOC}:/app/config
-    networks:
-      - homeServerNetwork
-    restart: unless-stopped    
-  ########################################
-  #  Trying out Jellyfin and jeelyseerr  #
-  ########################################
   plex:
     container_name: plex
     image: lscr.io/linuxserver/plex:latest
