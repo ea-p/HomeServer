@@ -36,4 +36,5 @@ data/jellyfin/*
 !data/jekllyfin/.gitkeep
 data/jellyseerr/*
 !data/jellyseerr/.gitkeep
-
+data/emby/*
+!data/emby/.gitkeep

@@ -13,7 +13,7 @@ services:
   #    - ${STORAGE}:/Storage
   #    - ${TVSHOWS_LOC}:/data/tvshows
   #    - ${MOVIES_LOC}:/data/movies
-
+  #
   #  ports:
   #    - 8096:8096
   #    - 7359:7359/udp #optional
@@ -48,12 +48,12 @@ services:
     volumes:
       - ${EMBY_CONFIG}:/config
       - ${TVSHOWS_LOC}:/data/tvshows
-      - $MOVIES_LOC}:/data/movies
+      - ${MOVIES_LOC}:/data/movies
       - /path/to/movies:/data/movies
     #  - /opt/vc/lib:/opt/vc/lib #optional
     ports:
       - ${EMBY_PORT}:8096
-      - 8920:8920 #optional
+    #  - 8920:8920 #optional
     #devices:
     #  - /dev/dri:/dev/dri #optional
     #  - /dev/vchiq:/dev/vchiq #optional
